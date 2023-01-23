@@ -1,1 +1,13 @@
-
+sequenceDiagram
+    participant Browser
+    participant Server
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    Server->>Browser: 302 Redirect https://studies.cs.helsinki.fi/exampleapp/notes
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    Server->>Browser: HTML Document
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    Server->>Browser: CSS-file
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    Server->>Browser: JavaScript-file
+    Browser->>Server: https://studies.cs.helsinki.fi/exampleapp/data.json
+    Server->>Browser: Sends the stored data in the data.json-file.
